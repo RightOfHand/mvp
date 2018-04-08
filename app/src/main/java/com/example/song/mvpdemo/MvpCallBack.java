@@ -18,4 +18,5 @@ public interface MvpCallBack<T> extends BaseCallBack<String>{
 
     void onComplete();
 
+
 }

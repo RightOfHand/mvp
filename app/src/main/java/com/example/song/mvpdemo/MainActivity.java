@@ -14,6 +14,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.song.mvpdemo.base.BaseActivity;
 import com.example.song.mvpdemo.base.Paths;
 import com.example.song.mvpdemo.bean.StudentBean;
+import com.google.zxing.qrcode.encoder.QRCode;
 import com.meituan.android.walle.WalleChannelReader;
 
 import javax.inject.Inject;
@@ -57,6 +58,7 @@ public class MainActivity extends BaseActivity implements MvpView ,View.OnClickL
 
         String chanel= WalleChannelReader.getChannel(this.getApplicationContext());
         readMetaDataFromApplication();
+
     }
 
     @Override
