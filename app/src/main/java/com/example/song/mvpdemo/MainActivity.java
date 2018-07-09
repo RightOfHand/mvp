@@ -3,7 +3,6 @@ package com.example.song.mvpdemo;
 import android.app.ProgressDialog;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,11 +12,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.song.mvpdemo.base.BaseActivity;
 import com.example.song.mvpdemo.base.Paths;
-import com.example.song.mvpdemo.bean.StudentBean;
-import com.google.zxing.qrcode.encoder.QRCode;
 import com.meituan.android.walle.WalleChannelReader;
-
-import javax.inject.Inject;
 
 @Route(path = Paths.MAIN_ACTIVITY)
 public class MainActivity extends BaseActivity implements MvpView ,View.OnClickListener{

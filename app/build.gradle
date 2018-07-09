@@ -4,13 +4,13 @@ apply plugin: 'walle'
 //props.load(new FileInputStream(file("signing.properties")))
 android {
 
-    compileSdkVersion 26
-    buildToolsVersion '26.0.3'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.example.song.mvpdemo"
         minSdkVersion 20
         targetSdkVersion 26
-        versionCode 1
+        versionCode 15
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
@@ -35,16 +35,26 @@ android {
     }
     buildTypes {
         debug {
-            minifyEnabled false
+//            minifyEnabled false
+//            shrinkResources false
+//            zipAlignEnabled false
+            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
         }
         release {
-            minifyEnabled false
+//            minifyEnabled true
+//            shrinkResources true
+//            zipAlignEnabled true
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }
+//    compileOptions{
+//        sourceCompatibility = '1.8'
+//        targetCompatibility ='1.8'
+//    }
 }
 //walle {
 //    // 指定渠道包的输出路径
@@ -56,16 +66,17 @@ android {
 //}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     implementation 'com.meituan.android.walle:library:1.1.6'
     implementation 'com.google.dagger:dagger:2.13'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.13'
-    compile 'com.alibaba:arouter-api:1.3.1'
+    implementation 'com.alibaba:arouter-api:1.3.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('libs/zxing_3.3.0.jar')
     implementation project(':library')
 }
