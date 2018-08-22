@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'walle'
+//apply plugin: 'walle'
 //Properties props = new Properties()
 //props.load(new FileInputStream(file("signing.properties")))
 android {
