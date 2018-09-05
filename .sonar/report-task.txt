@@ -2,5 +2,5 @@ projectKey=com.example.song.mvpdemo
 serverUrl=http://localhost:9005
 serverVersion=7.2.1.14109
 dashboardUrl=http://localhost:9005/dashboard?id=com.example.song.mvpdemo
-ceTaskId=AWVafnDICgQsN3Vh5JoF
-ceTaskUrl=http://localhost:9005/api/ce/task?id=AWVafnDICgQsN3Vh5JoF
+ceTaskId=AWWNtjjPCgQsN3Vh5JoZ
+ceTaskUrl=http://localhost:9005/api/ce/task?id=AWWNtjjPCgQsN3Vh5JoZ

@@ -1,0 +1,44 @@
+apply plugin: 'maven'
+def MAVEN_HOST='http://127.0.0.1:8081//repository/maven-releases/'
+def NEXUS_NAME='admin'
+def NEXUS_PASSWORD='admin123'
+def VERSION_NAME='0.1.2'
+def ARTIFACT_ID='device'
+def GROUP_ID='com.songy.device'
+def TYPE='aar'
+
+//task androidJavadocs(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+
+//task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+//    classifier = 'javadoc'
+//    from androidJavadocs.destinationDir
+//}
+
+//task androidSourcesJar(type: Jar) {
+//    classifier = 'sources'
+//    from android.sourceSets.main.java.srcDirs
+//}
+
+//artifacts {
+//    archives androidSourcesJar
+//    archives androidJavadocsJar
+//}
+uploadArchives{
+//    configuration = configurations.archives
+    repositories {
+        mavenDeployer {
+            repository(url: MAVEN_HOST) {
+                authentication(userName: NEXUS_NAME, password: NEXUS_PASSWORD)
+            }
+            pom.project {
+                version VERSION_NAME
+                artifactId ARTIFACT_ID
+                groupId GROUP_ID
+                description 'Device for Android'
+            }
+        }
+    }
+}

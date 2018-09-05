@@ -64,6 +64,11 @@ android {
 //    // 渠道配置文件
 //    channelFile = new File("${project.getProjectDir()}/channel")
 //}
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
@@ -78,5 +83,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('libs/zxing_3.3.0.jar')
-    implementation project(':library')
+    implementation 'com.songy.device:device:0.1.1'
 }
