@@ -51,8 +51,6 @@ public class MainActivity extends BaseActivity implements MvpView ,View.OnClickL
         btnError.setOnClickListener(this);
 
 
-        String chanel= WalleChannelReader.getChannel(this.getApplicationContext());
-        readMetaDataFromApplication();
 
     }
 
