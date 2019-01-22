@@ -1,20 +1,19 @@
 package com.example.song.mvpdemo;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.song.mvpdemo.activity.CustomDataBindActivity;
 import com.example.song.mvpdemo.base.BaseActivity;
-import com.example.song.mvpdemo.base.Paths;
-import com.meituan.android.walle.WalleChannelReader;
 
-@Route(path = Paths.MAIN_ACTIVITY)
 public class MainActivity extends BaseActivity implements MvpView ,View.OnClickListener{
     private static final String TAG = "MainActivity";
     private TextView tvTitle;
@@ -23,24 +22,16 @@ public class MainActivity extends BaseActivity implements MvpView ,View.OnClickL
     private Button btnError;
     ProgressDialog progressDialog;
     MvpPresenter presenter;
-
-
-
+    private ImageView ivStaticImage,ivGifImage;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvTitle=(TextView) findViewById(R.id.tvTitle);
-        btnSuccess=(Button) findViewById(R.id.btnSuccess);
-        btnFailure=(Button) findViewById(R.id.btnFailure);
-        btnError=(Button) findViewById(R.id.btnError);
+        findView();
 
-        // 初始化进度条
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("正在加载数据");
+//
 
         //初始化Presenter
         presenter = new MvpPresenter();
@@ -50,10 +41,21 @@ public class MainActivity extends BaseActivity implements MvpView ,View.OnClickL
         btnFailure.setOnClickListener(this);
         btnError.setOnClickListener(this);
 
+        ivStaticImage.setOnClickListener(this);
+
 
 
     }
 
+    private void findView(){
+        tvTitle=(TextView) findViewById(R.id.tvTitle);
+        btnSuccess=(Button) findViewById(R.id.btnSuccess);
+        btnFailure=(Button) findViewById(R.id.btnFailure);
+        btnError=(Button) findViewById(R.id.btnError);
+
+        ivStaticImage=(ImageView) findViewById(R.id.iv_static_image);
+        ivGifImage=(ImageView) findViewById(R.id.iv_git_image);
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -105,6 +107,10 @@ public class MainActivity extends BaseActivity implements MvpView ,View.OnClickL
        tvTitle.setText(data);
     }
 
+    void goDataBindActivity(){
+        Intent intent=new Intent(MainActivity.this, CustomDataBindActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onClick(View v) {
@@ -117,6 +123,9 @@ public class MainActivity extends BaseActivity implements MvpView ,View.OnClickL
                 break;
             case R.id.btnError:
                 getErrorData(v);
+                break;
+            case R.id.iv_static_image:
+                goDataBindActivity();
                 break;
 
         }

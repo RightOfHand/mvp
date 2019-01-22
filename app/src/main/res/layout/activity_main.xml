@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.song.mvpdemo.MainActivity">
+    android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
+    <TextView
+        android:id="@+id/tvData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp" />
+    <ImageView
+        android:id="@+id/iv_static_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/tvTitle"
+        android:src="@drawable/bg_my_individual_center_top"/>
+    <ImageView
+        android:id="@+id/iv_git_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/iv_static_image"/>
     <Button
         android:id="@+id/btnSuccess"
         android:layout_width="match_parent"
@@ -32,5 +47,4 @@
         android:gravity="center"
         android:text="error"
         android:layout_above="@+id/btnFailure" />
-
-</RelativeLayout>
+    </RelativeLayout>

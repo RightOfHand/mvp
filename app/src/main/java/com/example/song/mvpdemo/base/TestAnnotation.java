@@ -15,15 +15,15 @@ public class TestAnnotation {
 
     public  static void main(String[] args){
 
-//        try {
-//            Class c=Class.forName("com.example.song.mvpdemo.base.Child");
-//            boolean isExist=c.isAnnotationPresent(Description.class);
-//            if (isExist){
-//                Description d= ((Description) c.getAnnotation(Description.class));
-//                System.out.println(d.value());
-//            }
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Class c=Class.forName("com.example.song.mvpdemo.base.Child");
+            boolean isExist=c.isAnnotationPresent(Description.class);
+            if (isExist){
+                Description d= ((Description) c.getAnnotation(Description.class));
+                System.out.println(d.value());
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

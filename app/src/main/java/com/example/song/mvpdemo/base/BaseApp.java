@@ -2,6 +2,7 @@ package com.example.song.mvpdemo.base;
 
 import android.app.Application;
 
+import com.alibaba.android.arouter.BuildConfig;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 /**
@@ -14,8 +15,10 @@ public class BaseApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ARouter.openLog();
-        ARouter.openDebug();
+        if (BuildConfig.DEBUG){
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
         ARouter.init(this);
 
     }
